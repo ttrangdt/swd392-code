@@ -1,3 +1,11 @@
+/**
+ * -SE1990_NJ
+ * -HE195077
+ * -Version 1.0
+ * -09/11/2026
+ * -Copyright Notice
+ */
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { SizeChartRow, ProductSizeChartResponse, SizeRecommendationResult } from '../../types';

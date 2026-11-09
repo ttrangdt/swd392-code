@@ -1,3 +1,11 @@
+<!--
+-SE1990_NJ
+-HE195077
+-Version 1.0
+-09/11/2026
+-Copyright Notice
+-->
+
 # Thierlavier FSMS - Module Đinh Thị Thu Trang (Product Discovery & Catalog)
 
 Dự án này là phân hệ độc lập của **Đinh Thị Thu Trang** trong đồ án SWD392 (FSMS), thực thi hoàn chỉnh **5 Use Cases** theo tài liệu `UC-Trang.docx`, `UC_Business Rule.xlsx`, và `Group 5 - Course Project Report - G5.docx`:

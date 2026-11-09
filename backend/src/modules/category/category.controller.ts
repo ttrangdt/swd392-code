@@ -1,3 +1,11 @@
+/**
+ * -SE1990_NJ
+ * -HE195077
+ * -Version 1.0
+ * -09/11/2026
+ * -Copyright Notice
+ */
+
 import { Controller, Get } from '@nestjs/common';
 import { CategoryService } from './category.service';
 
