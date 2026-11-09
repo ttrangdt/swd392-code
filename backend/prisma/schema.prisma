@@ -1,0 +1,68 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum GenderTarget {
+  MEN
+  WOMEN
+  UNISEX
+}
+
+model Category {
+  id          String    @id @default(uuid())
+  name        String    @unique
+  slug        String    @unique
+  description String?
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  products    Product[]
+
+  @@map("categories")
+}
+
+model Product {
+  id            String        @id @default(uuid())
+  name          String
+  slug          String        @unique
+  description   String?
+  basePrice     Float
+  originalPrice Float?
+  audience      GenderTarget  @default(UNISEX)
+  style         String?
+  material      String?
+  images        String[]      @default([])
+  sizeChartJson Json?
+  isActive      Boolean       @default(true)
+  isDeleted     Boolean       @default(false)
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  categoryId    String
+  category      Category      @relation(fields: [categoryId], references: [id])
+  variants      ProductVariant[]
+
+  @@map("products")
+}
+
+model ProductVariant {
+  id        String   @id @default(uuid())
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  color     String
+  size      String
+  sku       String   @unique
+  price     Float?
+  stockQty  Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("product_variants")
+}
+
